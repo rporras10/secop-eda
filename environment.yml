@@ -1,0 +1,12 @@
+name: secop-eda
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas>=3.0
+  - numpy
+  - pyarrow
+  - matplotlib>=3.9
+  - scipy
+  - jupyter
+  - ipykernel
