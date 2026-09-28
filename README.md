@@ -18,8 +18,8 @@ Identificar qué atributos de un contrato (valor, modalidad de contratación, se
 ## Alcance
 
 - **Datos:** contratos de bienes firmados por entidades públicas colombianas entre 2019 y 2025, extraídos de SECOP II.
-- **Incluye:** entendimiento inicial y calidad de los datos, análisis univariado y multivariado, pruebas de hipótesis y recomendaciones basadas en datos.
-- **No incluye:** modelos predictivos. Las hallazgos encontrados son puramente observacionales.
+- **Incluye:** entendimiento inicial y calidad de los datos, análisis univariado y multivariado y recomendaciones basadas en datos.
+- **No incluye:** modelos predictivos. Los hallazgos encontrados son puramente observacionales.
 
 ## Datos
 
@@ -40,11 +40,12 @@ secop-eda/
 ├── environment.yml         <- ambiente conda para reproducir el análisis
 ├── secop_bienes.parquet    <- datos
 ├── Calidad_Datos.ipynb     <- 1. Diagnóstico de calidad de datos
-├── eda_secop.ipynb         <- 2. EDA, estrategia e hipótesis
+├── eda_secop.ipynb         <- 2. EDA, estrategia
+├── informe_ejecutivo.md    <- Informe ejecutivo
 └── Taller 1.pdf            <- enunciado del taller
 ```
 
-### Ubicacion de cada punto del taller
+### Ubicación de cada punto del taller
 
 | Punto del taller | Ubicación |
 |---|---|
@@ -55,10 +56,10 @@ secop-eda/
 
 ## Orden de ejecución
 
-Los notebooks son independientes (cada uno carga los datos desde el parquet), pero deben leerse y ejecutarse en el siguiente orden, debido a que el segundo ejecuta decisiones que estan basadas en en el primero:
+Los notebooks son independientes (cada uno carga los datos desde el parquet), pero deben leerse y ejecutarse en el siguiente orden, debido a que el segundo ejecuta decisiones que estan basadas en el primero:
 
 1. **`Calidad_Datos.ipynb`**: identifica y documenta los problemas de calidad de datos y las decisiones de tratamiento.
-2. **`eda_secop.ipynb`**: aplica esas decisiones y desarrolla el análisis, la estrategia y las pruebas de hipótesis.
+2. **`eda_secop.ipynb`**: aplica esas decisiones y desarrolla el análisis, la estrategia empleada.
 
 Cada notebook debe ejecutarse completo, desde arriba hacia abajo.
 
@@ -85,7 +86,7 @@ Definidas en `environment.yml`:
 Resumen; el detalle completo está en `informe_ejecutivo.md`.
 
 - Cerca de la mitad de los contratos (47.9%) presenta al menos una desviación en su ejecución; la más frecuente es el cierre sin liquidar (28.5%).
-- **El sector y el orden de la entidad son los factores más predictivos**: la tasa de desviación va del 34.0% (Inteligencia Estratégica) al 71.7% (Ciencia y Tecnología) según el sector, y del 45.8% al 59.6% según el orden.
+- **El sector es el factor que más discrimina**: El sector es el factor que más discrimina (37,7 puntos de rango), seguido de la modalidad (16,4) y el orden (13,8). La tasa de desviación va del 34.0% (Inteligencia Estratégica) al 71.7% (Ciencia y Tecnología) según el sector, y del 45.8% al 59.6% según el orden.
 - El efecto de la modalidad de contratación depende del sector: "Contratación régimen especial" tiene 91.1% de desviación en Defensa pero solo 13.5% en Interior — la combinación sector×modalidad es más informativa que cada atributo por separado.
 - **El valor del contrato y el destino del gasto no sirven como criterio de priorización**: su correlación con la desviación es prácticamente nula, contrario a la intuición inicial.
 - Una regresión lineal de días adicionados en función del valor y las categorías del Top 5 explica apenas 1.2% de la varianza (R² = 0.012), evidencia adicional de que estos factores por sí solos no predicen bien la magnitud de la desviación.
@@ -96,5 +97,5 @@ Resumen; el detalle completo está en `informe_ejecutivo.md`.
 - El análisis es observacional: las asociaciones encontradas no implican causalidad.
 - No se aplicaron pruebas de significancia estadística formal (chi-cuadrado, t-test); los contrastes son descriptivos, consistente con las técnicas vistas en el curso.
 - Dos de las tres señales de desviación solo se observan en contratos cerrados o terminados (51.5% del total); los contratos de 2025 muestran una tasa de cierre más baja (36.0% vs. 53-59% en años anteriores), aunque se verificó que las conclusiones no cambian al excluirlos.
-- El dataset tenía un valor atípico extremo (un contrato mal digitado por 1.28e16) que fue identificado y excluido (ver `Calidad_Datos.ipynb`, celdas 3.5-3.6); persisten otras inconsistencias menores de calidad ya documentadas y tratadas.
+- El dataset tenía un valor atípico extremo (un contrato mal digitado por 1.28e16) que fue identificado y excluido (ver `Calidad_Datos.ipynb`, celdas 3.5-3.6); persisten otras inconsistencias menores de calidad documentadas y tratadas.
 - El valor del contrato y el destino del gasto se incluyeron en el análisis porque el enunciado del taller los señala explícitamente, no porque los datos los respalden como buenos discriminadores.
