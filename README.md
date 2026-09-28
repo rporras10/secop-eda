@@ -9,7 +9,7 @@ Curso: Ciencia de Datos – Maestría en Ingeniería de Información (MINE), Uni
 | Nombre | Usuario GitHub | Correo |
 |---|---|---|
 | Rafael Porras | [@rporras10](https://github.com/rporras10) | r.porrasm@uniandes.edu.co |
-| Sebastián Rodríguez | _completar_ | _completar_ |
+| Sebastián Rodríguez | [@Sebastian-Rodrigueza](https://github.com/Sebastian-Rodrigueza) | js.rodrigueza1@uniandes.edu.co |
 
 ## Objetivo
 
