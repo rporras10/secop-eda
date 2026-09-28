@@ -86,7 +86,7 @@ Definidas en `environment.yml`:
 Resumen; el detalle completo está en `informe_ejecutivo.md`.
 
 - Cerca de la mitad de los contratos (47.9%) presenta al menos una desviación en su ejecución; la más frecuente es el cierre sin liquidar (28.5%).
-- **El sector es el factor que más discrimina**: El sector es el factor que más discrimina (37,7 puntos de rango), seguido de la modalidad (16,4) y el orden (13,8). La tasa de desviación va del 34.0% (Inteligencia Estratégica) al 71.7% (Ciencia y Tecnología) según el sector, y del 45.8% al 59.6% según el orden.
+- **El sector es el factor que más discrimina**: Sector con 37,7 puntos de rango, seguido de la modalidad (16,4) y el orden (13,8). La tasa de desviación va del 34.0% (Inteligencia Estratégica) al 71.7% (Ciencia y Tecnología) según el sector, y del 45.8% al 59.6% según el orden.
 - El efecto de la modalidad de contratación depende del sector: "Contratación régimen especial" tiene 91.1% de desviación en Defensa pero solo 13.5% en Interior — la combinación sector×modalidad es más informativa que cada atributo por separado.
 - **El valor del contrato y el destino del gasto no sirven como criterio de priorización**: su correlación con la desviación es prácticamente nula, contrario a la intuición inicial.
 - Una regresión lineal de días adicionados en función del valor y las categorías del Top 5 explica apenas 1.2% de la varianza (R² = 0.012), evidencia adicional de que estos factores por sí solos no predicen bien la magnitud de la desviación.
