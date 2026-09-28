@@ -34,33 +34,31 @@ Se marcó un contrato como "desviado" si presenta al menos una de estas tres ano
 
 ## 4. Criterios de focalización recomendados
 
-**Factor de riesgo:** sector, modalidad u orden cuya tasa de desviación supera en al menos 5 puntos el promedio (es decir, 52,9% o más), con al menos 30 contratos. Con los resultados del análisis, los factores son:
+Para escoger los factores de riesgo usamos un corte simple: sector, modalidad u orden cuya tasa de desviación supere el promedio general (47,9%) en al menos 5 puntos, es decir 52,9% o más, y con al menos 30 contratos para que la cifra no sea puro ruido de muestra chica. Con eso quedan:
 
-- **Sectores:** Ciencia y Tecnología (71,7%), Presidencia de la República (61,1%), Relaciones Exteriores (60,5%), Información Estadística (60,0%), Defensa (56,0%), Salud y Protección Social (54,5%), Industria (54,5%) y Trabajo (53,2%).
-- **Modalidades:** régimen especial con ofertas (62,3%), licitación pública (59,6%) y selección abreviada de menor cuantía, con y sin manifestación de interés (54,1% y 54,2%).
-- **Orden:** corporaciones autónomas (59,6%).
+- Sectores: Ciencia y Tecnología (71,7%), Presidencia de la República (61,1%), Relaciones Exteriores (60,5%), Información Estadística (60,0%), Defensa (56,0%), Salud y Protección Social (54,5%), Industria (54,5%) y Trabajo (53,2%).
+- Modalidades: régimen especial con ofertas (62,3%), licitación pública (59,6%) y selección abreviada de menor cuantía, con y sin manifestación de interés (54,1% y 54,2%).
+- Orden: corporaciones autónomas (59,6%).
+
+Con esos factores proponemos 4 niveles de prioridad:
 
 | Nivel | Regla | Acción sugerida |
 |---|---|---|
-| **1. Alta** | Contratación en régimen especial de los sectores defensa (91,1%) y agricultura (89,8%), las combinaciones de mayor desviación del análisis | Seguimiento cercano desde la firma: cronograma de entregas, pagos y liquidación |
-| **2. Media** | Contratos con dos o más factores de riesgo (por ejemplo, un contrato del sector salud adjudicado en régimen especial con ofertas) | Revisión en hitos: a mitad del plazo y al cierre |
-| **3. Monitoreo** | Contratos con un solo factor de riesgo | Alertas automáticas: vencimiento sin liquidar, pagos por debajo del 90% al cierre y prórrogas |
-| **4. Estándar** | Contratos sin factores de riesgo | Control rutinario |
+| 1. Alta | Régimen especial en defensa (91,1%) o agricultura (89,8%) — las combinaciones más altas del análisis | Seguimiento cercano desde la firma: cronograma de entregas, pagos y liquidación |
+| 2. Media | Dos o más factores de riesgo a la vez (ej. un contrato de salud adjudicado en régimen especial con ofertas) | Revisión en hitos: a mitad del plazo y al cierre |
+| 3. Monitoreo | Un solo factor de riesgo | Alertas automáticas: vencimiento sin liquidar, pagos por debajo del 90% al cierre y prórrogas |
+| 4. Estándar | Sin factores de riesgo | Control rutinario |
 
-**Reglas de aplicación:**
-
-1. Dentro de cada nivel, atender primero los contratos de mayor valor: el valor no predice la desviación, pero sí aumenta el impacto cuando ocurre.
-2. Como el cierre sin liquidar es la desviación más frecuente (28,5% de los contratos), activar para **todos** los contratos una alerta de liquidación al vencer el plazo, sin importar su nivel.
-3. No usar el destino del gasto como criterio: funcionamiento e inversión se desvían prácticamente igual.
+Un par de cosas a tener en cuenta al aplicar esto: dentro de cada nivel conviene atender primero los contratos de mayor valor (no porque el valor prediga la desviación, sino porque aumenta el impacto cuando sí ocurre); y como el cierre sin liquidar es la desviación más frecuente (28,5% de los contratos), esa alerta de liquidación al vencer el plazo debería activarse para todos los contratos, sin importar el nivel. El destino del gasto no se usa como criterio porque funcionamiento e inversión se desvían casi igual.
 
 ## 5. Limitaciones
 
-1. **El análisis es observacional.** Las asociaciones encontradas no implican causalidad: no se puede afirmar que cambiar la modalidad de un contrato cambie su probabilidad de desviarse.
-2. **Dos de las tres señales solo se observan en contratos cerrados o terminados** (51,5% del total). Los grupos con más contratos cerrados pueden mostrar tasas más altas en parte por esa razón, y los contratos recientes aparecen con menos desviación de la real: en 2025 solo el 36,0% está cerrado o terminado.
-3. **No se aplicaron pruebas de significancia formales.** Las diferencias entre grupos grandes son claras, pero las tasas de grupos pequeños pueden variar de un año a otro (por ejemplo, Inteligencia Estratégica tiene 100 contratos). Por eso se exigió un mínimo de 30 contratos por grupo.
-4. **Calidad de los datos de origen:**
-   - La mediana del valor pagado registrado es 0, lo que sugiere que parte de los pagos no se registra en SECOP II. Esto puede inflar la señal de presupuesto no ejecutado.
-   - El sector conserva la categoría "No aplica/No pertenece" (24.465 contratos), que no se pudo asignar a ningún sector.
-   - La duración del contrato presenta problemas en el 21,7% de los registros (ver `Calidad_Datos.ipynb`).
-5. **El número de contratos publicados crece durante el periodo**, de 16.425 firmados en 2019 a 40.113 en 2025, por lo que los años no son del todo comparables entre sí.
-6. **Los umbrales (promedio + 5 puntos y mínimo de 30 contratos) son decisiones del análisis.** Se recomienda recalcularlos cada año con los datos más recientes.
+El análisis es observacional — las asociaciones que encontramos no implican causalidad, no podemos afirmar que cambiar la modalidad de un contrato vaya a cambiar su probabilidad de desviarse.
+
+Tampoco aplicamos pruebas de significancia formales: las diferencias entre grupos grandes son claras a simple vista, pero en grupos chicos (Inteligencia Estratégica tiene apenas 100 contratos, por ejemplo) la tasa puede variar bastante de un año a otro. Por eso exigimos mínimo 30 contratos por grupo antes de confiar en una cifra.
+
+Dos de las tres señales de desviación solo se pueden observar en contratos ya cerrados o terminados (51,5% del total), lo que introduce un sesgo hacia años más viejos: en 2025 apenas el 36,0% de los contratos está cerrado, contra 53-59% en años anteriores, así que los contratos recientes van a verse artificialmente "menos desviados" de lo que en realidad terminarán estando.
+
+También hay temas de calidad de los datos de origen que vale la pena mencionar: la mediana del valor pagado registrado es 0, lo que sugiere que buena parte de los pagos simplemente no se registra en SECOP II (y eso puede estar inflando la señal de presupuesto no ejecutado); el sector todavía tiene una categoría "No aplica/No pertenece" con 24.465 contratos sin asignar; y la duración del contrato tiene problemas en el 21,7% de los registros (detalle en `Calidad_Datos.ipynb`).
+
+Por último, el número de contratos crece bastante durante el periodo (de 16.425 en 2019 a 40.113 en 2025), así que los años no son del todo comparables entre sí, y los umbrales que usamos (promedio + 5 puntos, mínimo 30 contratos) son decisiones nuestras, no verdades absolutas — recomendamos recalcularlos cada año con datos más recientes.
